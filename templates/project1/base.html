@@ -1,0 +1,34 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+		rel="stylesheet" />
+</head>
+<body>
+
+     <div style="background-color: #24a0ed" class="ui menu" id="topbar">
+          <a style="color: white" href="{% url 'homepage' %}" class="header item" id="logo">
+            Form Builder
+          </a>
+
+          <div class="ui right secondary menu">
+            <a style="color: white" href="{% url 'homepage' %}" class="item" >
+                Home
+              </a>
+              <a style="color: white" href="{% url 'gen_form' %}"  class="item">
+                Generate Form
+              </a>
+          </div>
+      </div>
+
+    {% block body %} {% endblock body %}
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+
+</body>
+</html>

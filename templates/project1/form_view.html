@@ -1,0 +1,37 @@
+{% extends 'project1/base.html' %}
+
+{% block body %}
+
+    <div style="padding-top: 30px; display: flex; justify-content: center; align-items: center;" class="ui text container">
+
+		<form class="ui form segment" method="POST" action="{% url 'formSubmit'  length  %}"  style="flex-basis: 90%;">
+            <label>
+                <textarea hidden name="fname">{{ f_name }}</textarea>
+                 <textarea hidden name="flabel">{{ form_label }}</textarea>
+            </label>
+
+			<h3>{{ f_name }}</h3>
+			{% csrf_token %}
+            {% for item1, item2 in mylist %}
+                {% if item2 == 'text area' %}
+                    <div class="field">
+                        <label>{{ item1 }}</label>
+                        <label>
+                            <textarea name="{{ forloop.counter }}" rows="4" cols="50"> </textarea>
+                        </label>
+                    </div>
+                {% else %}
+                    <div class="field">
+                        <label>{{ item1 }}</label>
+                        <input name="{{ forloop.counter }}" type="{{ item2 }}"  >
+                    </div>
+                {% endif %}
+
+            {% endfor %}
+
+		  <button class="ui green button" type="submit">Submit</button>
+		</form>
+	</div>
+
+
+{% endblock body %}

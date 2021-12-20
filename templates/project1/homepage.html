@@ -1,0 +1,41 @@
+{% extends 'project1/base.html' %}
+
+
+{% block body %}
+     <table style="width: 60%; margin-left: auto; margin-right: auto; margin-top: 40px" class="ui celled striped table">
+              <thead>
+                    <tr><th colspan="3">
+                            <h3>Form List</h3>
+                        </th>
+                    </tr>
+                     <tr>
+                         <th>SL</th>
+                         <th>Name</th>
+                         <th style="text-align: center">Action</th>
+                     </tr>
+              </thead>
+              <tbody>
+
+                    {% for name in field_type %}
+                        {% if forloop.counter == 1 %}
+                            <tr>
+                              <td class="collapsing">
+                                <p>{{ forloop.counter }}</p>
+                              </td>
+                              <td><a href="{% url 'form' name %}">{{ name }}</a></td>
+                              <td class="right aligned collapsing"><a href="{% url 'reports' name %}"><button class="ui tiny green button">Reports</button></a></td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                              <td>
+                                <p>{{ forloop.counter }}</p>
+                              </td>
+                              <td><a href="{% url 'form' name %}">{{ name }}</a></td>
+                              <td class="right aligned"><a href="{% url 'reports' name %}"><button class="ui tiny green button">Reports</button></a></td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+              </tbody>
+    </table>
+
+{% endblock body %}

@@ -1,0 +1,27 @@
+{% extends 'project1/base.html' %}
+
+
+{% block body %}
+    <table style="margin-top: 50px; width: 50%; margin-left: auto; margin-right: auto" class="ui celled table">
+          <thead>
+             <tr><th colspan={{ length }}>
+                  <h3>{{ fname }}</h3>
+             </th></tr>
+             <tr>
+                 {% for h in h_data %}
+                    <th>{{ h }}</th>
+                 {% endfor %}
+             </tr>
+          </thead>
+          <tbody>
+                {% for in_vlu in in_value %}
+                    <tr>
+                        {% for in_vl in in_vlu %}
+                          <td>{{ in_vl }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+          </tbody>
+    </table>
+
+{% endblock body %}

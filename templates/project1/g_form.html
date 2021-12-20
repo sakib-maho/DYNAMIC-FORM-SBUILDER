@@ -1,0 +1,166 @@
+{% extends 'project1/base.html' %}
+
+{% block body %}
+
+
+
+        <div style="margin: 20px" class="ui two column very relaxed grid">
+            <div id="add_to_me" class="column">
+               <label>Form Name</label>
+                <br>
+                <div style="margin-top: 10px" class="ui input">
+                    <input id="0" type="text">
+                </div>
+            </div>
+
+            <div style="text-align: end" class="column">
+                    <button style="background-color: #24a0ed" onclick="addCode()" id="text_button" class="ui primary button">Text</button>
+                    <br>
+                    <br>
+                     <button style="background-color: #24a0ed" onclick="addCode1()" id="no_button" class="ui primary button">Number</button>
+                    <br><br>
+                    <button style="background-color: #24a0ed" onclick="addCode2()" id="date_button" class="ui primary button">Date</button>
+                    <br><br>
+                    <button style="background-color: #24a0ed" onclick="addCode3()" id="tarea_button" class="ui primary button">Text Area</button>
+
+            </div>
+        </div>
+
+     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <script>
+        let field_type = [];
+        let field_data = [];
+        let given_id = 0;
+        const txtInsert = document.querySelector('#text_button');
+        const noInsert = document.querySelector('#no_button');
+        const dateInsert = document.querySelector('#date_button');
+        const tareaInsert = document.querySelector('#tarea_button');
+
+
+        function addCode() {
+            let input_type = txtInsert.innerHTML.toLowerCase()
+            field_type.push(input_type);
+            if (document.getElementById("generate") !== null){
+                var myobj = document.getElementById("generate");
+                var myobj1 = document.getElementById("a");
+                var myobj2 = document.getElementById("b");
+                myobj.remove();
+                myobj1.remove();
+                myobj2.remove();
+            }
+
+			document.getElementById("add_to_me").innerHTML +=
+			`<div style="margin-top: 15px" id="form_data" class="column">
+       <label >${txtInsert.innerHTML}</label>
+        <br>
+        <div style="margin-top: 10px" class="ui input">
+            <input id="${given_id = given_id + 1}" type="text">
+        </div><br id="a"><br id="b">
+        <button onclick="passData(field_type)" id="generate" class="ui green button">Generate</button>`
+		}
+
+        function addCode1() {
+            let input_type = noInsert.innerHTML.toLowerCase()
+            field_type.push(input_type);
+
+            if (document.getElementById("generate") !== null){
+                var myobj = document.getElementById("generate");
+                var myobj1 = document.getElementById("a");
+                var myobj2 = document.getElementById("b");
+                myobj.remove();
+                myobj1.remove();
+                myobj2.remove();
+            }
+
+
+
+			document.getElementById("add_to_me").innerHTML +=
+			`<div style="margin-top: 15px" id="form_data" class="column">
+       <label >${noInsert.innerHTML}</label>
+        <br>
+        <div style="margin-top: 10px" class="ui input">
+            <input id="${given_id = given_id + 1}" type="text"}>
+        </div><br id="a"><br id="b">
+        <button onclick="passData(field_type)" id="generate" class="ui green button">Generate</button>`
+		}
+
+        function addCode2() {
+            let input_type = dateInsert.innerHTML.toLowerCase()
+            field_type.push(input_type);
+
+            if (document.getElementById("generate") !== null){
+                var myobj = document.getElementById("generate");
+                var myobj1 = document.getElementById("a");
+                var myobj2 = document.getElementById("b");
+                myobj.remove();
+                myobj1.remove();
+                myobj2.remove();
+            }
+
+
+			document.getElementById("add_to_me").innerHTML +=
+			`<div style="margin-top: 15px" id="form_data" class="column">
+       <label >${dateInsert.innerHTML}</label>
+        <br>
+        <div style="margin-top: 10px" class="ui input">
+            <input id="${given_id = given_id + 1}" type="text">
+        </div><br id="a"><br id="b">
+        <button onclick="passData(field_type)" id="generate" class="ui green button">Generate</button>`
+		}
+
+         function addCode3() {
+            let input_type = tareaInsert.innerHTML.toLowerCase();
+            field_type.push(input_type);
+
+            if (document.getElementById("generate") !== null){
+                var myobj = document.getElementById("generate");
+                var myobj1 = document.getElementById("a");
+                var myobj2 = document.getElementById("b");
+                myobj.remove();
+                myobj1.remove();
+                myobj2.remove();
+            }
+
+
+			document.getElementById("add_to_me").innerHTML +=
+			`<div style="margin-top: 15px" id="form_data" class="column">
+       <label >${tareaInsert.innerHTML}</label>
+        <br>
+        <div style="margin-top: 10px" class="ui input">
+            <input id="${given_id = given_id + 1}" type="text">
+        </div><br id="a"><br id="b">
+        <button  onclick="passData(field_type)" id="generate" class="ui green button">Generate</button>`
+		}
+
+        function passData(field_type) {
+            console.log(field_type);
+            for (let i = 0; i <= given_id; i++) {
+                //console.log(i);
+                field_data.push(document.getElementById(i).value);
+            }
+
+            $.ajax({
+                    type: "GET",
+                    url: '/data/',
+                    data: {
+                        "data[]": field_type,
+                        "data1[]": field_data,
+                    },
+                    dataType: "json",
+                    success: function (data) {
+                        // any process in data
+                        alert("successfull")
+                    },
+                    failure: function () {
+                        alert("failure");
+                    }
+                });
+            location.href='{% url 'homepage' %}';
+        }
+
+	</script>
+
+
+
+{% endblock body %}
