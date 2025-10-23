@@ -1,3 +1,7 @@
+# Copyright (c) 2025 sakib-maho
+# Licensed under the MIT License
+# See LICENSE file for details
+
 """
 ASGI config for project1 project.
 

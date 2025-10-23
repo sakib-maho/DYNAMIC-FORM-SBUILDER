@@ -1,3 +1,7 @@
+# Copyright (c) 2025 sakib-maho
+# Licensed under the MIT License
+# See LICENSE file for details
+
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 import re

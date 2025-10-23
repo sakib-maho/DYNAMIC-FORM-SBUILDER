@@ -1,3 +1,7 @@
+# Copyright (c) 2025 sakib-maho
+# Licensed under the MIT License
+# See LICENSE file for details
+
 #!/usr/bin/env python
 """Django's command-line utility for administrative tasks."""
 import os
