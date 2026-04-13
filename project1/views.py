@@ -2,8 +2,8 @@
 # Licensed under the MIT License
 # See LICENSE file for details
 
-from django.http import HttpResponse, JsonResponse
-from django.shortcuts import render, redirect
+from django.http import JsonResponse
+from django.shortcuts import render
 import re
 
 x = []
@@ -37,19 +37,21 @@ def data(request):
     field_data = request.GET.getlist('data1[]', None)
     x.append(field_data)
     form_fields.append(field_type)
-    return HttpResponse("Done")
+    return JsonResponse({"status": "ok"})
 
 
 def form(request, name):
-    flag = 0
+    flag = None
     form_data = []
     for i in x:
-        if name in i:
+        if i and i[0] == name:
             flag = x.index(i)
             form_data = i
+            break
 
-    print(form_fields[flag])
-    print(form_data[1:])
+    if flag is None:
+        return render(request, 'project1/nodata.html')
+
     length = len(form_data)-1
     mylist = zip(form_data[1:], form_fields[flag])
     data = {

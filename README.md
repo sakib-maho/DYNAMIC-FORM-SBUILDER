@@ -1,13 +1,61 @@
-# DYNAMIC-FORM-SBUILDER
+# Dynamic Form Builder
 
-## Description
-DYNAMIC-FORM-SBUILDER - A project by sakib-maho
+A Django-based web application for building custom forms from the UI and collecting submitted responses in tabular report views.
+
+## Features
+
+- Create forms dynamically from the browser
+- Add multiple field types:
+  - text
+  - number
+  - date
+  - text area
+- Render generated forms instantly
+- Submit response entries and view report tables per form
+- Simple in-memory prototype for learning and demo purposes
+
+## Tech Stack
+
+- Python
+- Django 3.2
+- HTML + Semantic UI
+- JavaScript + jQuery (frontend interactions)
+
+## Quick Start
+
+```bash
+git clone https://github.com/sakib-maho/DYNAMIC-FORM-SBUILDER.git
+cd DYNAMIC-FORM-SBUILDER
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py runserver
+```
+
+Open `http://127.0.0.1:8000/`.
+
+## How to Use
+
+1. Open **Generate Form**
+2. Set a form name
+3. Add fields using the field buttons
+4. Click **Generate**
+5. Open the form from **Home**
+6. Submit entries and view **Reports**
+
+## Project Structure
+
+- `manage.py` - Django management entrypoint
+- `project1/` - Django project settings, routes, and views
+- `templates/project1/` - UI templates
+
+## Notes
+
+- Data is stored in process memory in the current implementation.
+- Restarting the server clears created forms and submitted responses.
+- This repository is best treated as a prototype/demo project.
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Author
-sakib-maho
-
-## Copyright
-Copyright (c) 2025 sakib-maho
+This project is licensed under the MIT License. See [LICENSE](LICENSE).
