@@ -21,13 +21,6 @@ A Django-based web application for building custom forms from the UI and collect
 - Submit response entries and view report tables per form
 - Simple in-memory prototype for learning and demo purposes
 
-## Tech Stack
-
-- Python
-- Django 3.2
-- HTML + Semantic UI
-- JavaScript + jQuery (frontend interactions)
-
 ## Quick Start
 
 ```bash
@@ -41,6 +34,17 @@ python manage.py runserver
 ```
 
 Open `http://127.0.0.1:8000/`.
+
+## License
+
+This project is licensed under the MIT License. See [LICENSE](LICENSE).
+
+## Tech Stack
+
+- Python
+- Django 3.2
+- HTML + Semantic UI
+- JavaScript + jQuery (frontend interactions)
 
 ## How to Use
 
@@ -62,7 +66,3 @@ Open `http://127.0.0.1:8000/`.
 - Data is stored in process memory in the current implementation.
 - Restarting the server clears created forms and submitted responses.
 - This repository is best treated as a prototype/demo project.
-
-## License
-
-This project is licensed under the MIT License. See [LICENSE](LICENSE).
