@@ -1,5 +1,12 @@
 # Dynamic Form Builder
 
+<!-- BrandCloud:readme-standard -->
+[![Maintained](https://img.shields.io/badge/Maintained-yes-brightgreen.svg)](#)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Showcase](https://img.shields.io/badge/Portfolio-Showcase-blue.svg)](#)
+
+_Part of the `sakib-maho` project showcase series with consistent documentation and quality standards._
+
 A Django-based web application for building custom forms from the UI and collecting submitted responses in tabular report views.
 
 ## Features
