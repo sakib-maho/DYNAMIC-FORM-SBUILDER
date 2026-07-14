@@ -24,8 +24,8 @@ A Django-based web application for building custom forms from the UI and collect
 ## Quick Start
 
 ```bash
-git clone https://github.com/sakib-maho/DYNAMIC-FORM-SBUILDER.git
-cd DYNAMIC-FORM-SBUILDER
+git clone https://github.com/sakib-maho/dynamic-form-builder.git
+cd dynamic-form-builder
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
